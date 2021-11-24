@@ -1,0 +1,109 @@
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+
+}
+
+
+.victory {
+  width: 100px ;
+  text-shadow: 0;
+  box-shadow: 0;
+}
+
+.playbtn {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 3px 1px #4cb390;
+  display: inline-block;
+  font-size: 2rem;
+  margin-top: 50px;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 7px 60px;
+  background-color: #4ECCA3;
+  color: #fff;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow:3px 1px #232931;
+  transition: transform ease-in 0.1s;
+  outline: none;
+}
+
+.playbtn:active {
+  transform: scale(0.95);
+  opacity: 95%;
+  background-color: #4cb390;
+  box-shadow:1px 0 #232931;
+}
+
+
+body {
+  background-color: #393E46;
+}
+
+h1 {
+  margin: 30px;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 5rem;
+  color: #4ECCA3;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+}
+
+.dice_img {
+  width: 224px;
+  box-shadow: 5px 3px #232931;
+  margin: 0 50px;
+  border-radius: 15px;
+}
+
+@keyframes headingAnimation{
+  0%{
+    opacity: 0%;
+    transform: scale(0.95);
+  }
+  100%{
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+.headingAnimation{
+  animation-name: headingAnimation;
+  animation-duration: 0.5s;
+}
+
+@keyframes diceRoll {
+  0%{transform: rotate(360deg) scale(0.5);}  
+  100%{transform: rotate(0deg) scale(0.7);} 
+}
+
+.diceAnimation{
+  animation-name: diceRoll;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+}
+
+
+
+footer {
+  margin-top: 5%;
+  color: #EEEEEE;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+
+}
