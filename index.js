@@ -21,9 +21,11 @@ playBtn.click(function (e) {
 });
 
 function start() {
-  nameOfP1.html(prompt("Enter Player 1"));
+  nameOfP1.html(prompt("Name of Player 1 ?", "Player 1"));
 
-  nameOfP2.html(prompt("Enter Player 2"));
+  nameOfP2.html(prompt("Name of Player 2 ?", "Player 2"));
+
+  header.html("Play Game");
 
   playBtn.html("Play");
 }
