@@ -2,7 +2,9 @@
 document.querySelector("button.playbtn").addEventListener("click", game);
 
 function game(){
-
+    
+    var nameOfPlayer1 = prompt("Enter Player 1:");
+    var nameOfPlayer2 = prompt("Enter Player 2:")
 
 // Player Score
 
