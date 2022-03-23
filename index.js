@@ -1,75 +1,93 @@
+var header = $("h1");
 
-document.querySelector("button.playbtn").addEventListener("click", game);
+var nameOfP1 = $(".p1");
+var nameOfP2 = $(".p2");
 
-function game(){
-    
-    var nameOfPlayer1 = prompt("Enter Player 1:");
-    var nameOfPlayer2 = prompt("Enter Player 2:")
+var score1 = $(".s1");
+var score2 = $(".s2");
 
-// Player Score
+var img1 = $(".img1");
+var img2 = $(".img2");
 
-    var scoreOFPlayer1 = parseInt(document.querySelector(".score1").innerHTML)
+var playBtn = $("button.playbtn");
 
-    var scoreOFPlayer2 = parseInt(document.querySelector(".score2").innerHTML)
+playBtn.click(function (e) {
+  var btn = this.innerHTML;
+  if (btn === "Start") {
+    start();
+  } else {
+    play();
+  }
+});
 
+function start() {
+  nameOfP1.html(prompt("Enter Player 1"));
 
-// Actual code for dice game
+  nameOfP2.html(prompt("Enter Player 2"));
 
-    var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+  playBtn.html("Play");
+}
 
-    var randomImage1 = "dice" + randomNumber1 + ".png";
+function play() {
+  var p1 = nameOfP1.html();
 
-    document.querySelector(".img1").setAttribute("src", "images/" + randomImage1);
+  var p2 = nameOfP2.html();
 
-    var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+  var s1 = parseInt(score1.html());
 
-    var randomImage2 = "dice" + randomNumber2 + ".png";
+  var s2 = parseInt(score2.html());
 
-    document.querySelector(".img2").setAttribute("src", "images/" + randomImage2);
+  var randomNumber1 = Math.floor(Math.random() * 6) + 1;
 
+  var randomImage1 = "dice" + randomNumber1 + ".png";
 
-    if(randomNumber1 > randomNumber2) {
+  img1.attr("src", "images/" + randomImage1);
 
-        document.querySelector("h1").innerHTML = "<img class = 'victory' src = 'images/victory_1.png'> Player 1 Wins!";
+  var randomNumber2 = Math.floor(Math.random() * 6) + 1;
 
-        scoreOFPlayer1 = scoreOFPlayer1 + 1;
+  var randomImage2 = "dice" + randomNumber2 + ".png";
 
-        document.querySelector(".score1").innerHTML = scoreOFPlayer1;
-    }
-    else if(randomNumber1 < randomNumber2) {
+  img2.attr("src", "images/" + randomImage2);
 
-        document.querySelector("h1").innerHTML = "Player 2 Wins! <img class = 'victory' src = 'images/victory_2.png'>";
+  if (randomNumber1 > randomNumber2) {
+    header.html(
+      "<img class = 'victory' src = 'images/victory_1.png'> " + p1 + " Wins!"
+    );
 
-        scoreOFPlayer2 = scoreOFPlayer2 + 1;
+    s1 = s1 + 1;
 
-        document.querySelector(".score2").innerHTML = scoreOFPlayer2;
-    }
-    else{
-        document.querySelector("h1").innerHTML = "Draw!";
-    }
+    score1.html(s1);
+  } else if (randomNumber1 < randomNumber2) {
+    header.html(
+      p2 + " Wins! <img class = 'victory' src = 'images/victory_2.png'>"
+    );
 
+    s2 = s2 + 1;
 
-// Adding Animations
-            
-    // Heading Animation
-    document.querySelector("h1").classList.add("headingAnimation");
-            
-    setTimeout(function(){
-        document.querySelector("h1").classList.remove("headingAnimation");
-    }, 501);
+    score2.html(s2);
+  } else {
+    header.html("Draw!");
+  }
 
-    // Dice roll Animation
-    
-    document.querySelector(".img1").classList.add("diceAnimation");
-    
-    setTimeout(function(){
-        document.querySelector(".img1").classList.remove("diceAnimation");
-    }, 201);
+  // Adding Animations
 
-    document.querySelector(".img2").classList.add("diceAnimation");
-    
-    setTimeout(function(){
-        document.querySelector(".img2").classList.remove("diceAnimation");
-    }, 201);
+  header.addClass("headingAnimation");
 
+  setTimeout(function () {
+    header.removeClass("headingAnimation");
+  }, 501);
+
+  // Dice roll Animation
+
+  img1.addClass("diceAnimation");
+
+  setTimeout(function () {
+    img1.removeClass("diceAnimation");
+  }, 201);
+
+  img2.addClass("diceAnimation");
+
+  setTimeout(function () {
+    img2.removeClass("diceAnimation");
+  }, 201);
 }
